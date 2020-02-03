@@ -1,0 +1,22 @@
+<div class="header">Neuro Bot</div>
+<div class="footer">
+  <div #scrollMe class="msg-scroll">
+    <ng-container *ngFor="let message of messages | async">
+      <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+        {{ message.content }}
+      </div>
+    </ng-container>
+  </div >
+
+  <div class="input-btns">
+    <label for="nameField" style="color:white;">Commencer le chat avec un Bonjour</label>
+    <div class='unvisibleBlock' [ngClass]="{'visibleBlock':ifReady==1}">
+      <div class='answerElem' (click)="sendMessageA()">A</div>
+      <div class='answerElem' (click)="sendMessageB()">B</div>
+      <div class='answerElem' (click)="sendMessageC()">C</div>
+      <div class='answerElem' (click)="sendMessageD()">D</div>
+    </div>
+    <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" [disabled]="ifReady==1" style="border-color:#00ACA0 !important; color:white;">
+    <button class="float-right" (click)="sendMessage()">Envoyer</button>
+  </div>
+</div>
