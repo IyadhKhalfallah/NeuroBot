@@ -17,6 +17,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   numberB:any;
   numberC:any;
   numberD:any;
+  numberE:any;
   score:any;
   ifReady=0;
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
@@ -27,6 +28,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
     this.numberB=0;
     this.numberC=0;
     this.numberD=0;
+    this.numberE=0;
     this.score=0;
     // appends to array after each new message is added to feedSource
     this.messages = this.chat.conversation.asObservable()
@@ -37,12 +39,13 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   sendMessage() {
     this.chat.converse(this.formValue);
     this.formValue = '';
-    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4)/16;
-    if((this.numberA+this.numberB+this.numberC+this.numberD)==16){
+    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
+    if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
       this.sendLastMessage();
     }
     console.log(this.score)
-    if(this.messages['source']['source']['value']['0']['content']=='Oui'){
+    let messageReceived=this.messages['source']['source']['value']['0']['content'];
+    if(messageReceived=='Oui' || messageReceived=='oui' || messageReceived=='ui' || messageReceived=='wi'){
       this.ifReady=1;
     }
   }
@@ -53,8 +56,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   sendMessageA() {
     this.chat.converse('A');
     this.numberA++;
-    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4)/16;
-    if((this.numberA+this.numberB+this.numberC+this.numberD)==16){
+    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
+    if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
       this.sendLastMessage();
     }
     console.log(this.score)
@@ -62,8 +65,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   sendMessageB() {
     this.chat.converse('B');
     this.numberB++;
-    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4)/16;
-    if((this.numberA+this.numberB+this.numberC+this.numberD)==16){
+    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
+    if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
       this.sendLastMessage();
     }
     console.log(this.score)
@@ -71,8 +74,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   sendMessageC() {
     this.chat.converse('C');
     this.numberC++;
-    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4)/16;
-    if((this.numberA+this.numberB+this.numberC+this.numberD)==16){
+    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
+    if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
       this.sendLastMessage();
     }
     console.log(this.score)
@@ -80,8 +83,17 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   sendMessageD() {
     this.chat.converse('D');
     this.numberD++;
-    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4)/16;
-    if((this.numberA+this.numberB+this.numberC+this.numberD)==16){
+    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
+    if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
+      this.sendLastMessage();
+    }
+    console.log(this.score)
+  }
+  sendMessageE() {
+    this.chat.converse('D');
+    this.numberE++;
+    this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
+    if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
       this.sendLastMessage();
     }
     console.log(this.score)

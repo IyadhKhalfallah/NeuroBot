@@ -1,4 +1,21 @@
 <div class="header">Neuro Bot</div>
+<div class='unvisibleBlock' [ngClass]="{'visibleBlock':ifReady==1}">
+<div align="right" class="whiteText">
+    A- Beaucoup mieux 
+  </div>
+  <div align="right" class="whiteText">
+      B- Un peu mieux
+    </div>
+    <div align="right" class="whiteText">
+        C- Aucun changement
+      </div>
+      <div align="right" class="whiteText">
+          D- Un peu moins bien 
+        </div>
+        <div align="right" class="whiteText">
+            E- Beaucoup moins bien 
+          </div>
+</div>
 <div class="footer">
   <div #scrollMe class="msg-scroll">
     <ng-container *ngFor="let message of messages | async">
@@ -11,10 +28,11 @@
   <div class="input-btns">
     <label for="nameField" style="color:white;">Commencer le chat avec un Bonjour</label>
     <div class='unvisibleBlock' [ngClass]="{'visibleBlock':ifReady==1}">
-      <div class='answerElem' (click)="sendMessageA()">A</div>
-      <div class='answerElem' (click)="sendMessageB()">B</div>
-      <div class='answerElem' (click)="sendMessageC()">C</div>
-      <div class='answerElem' (click)="sendMessageD()">D</div>
+      <div class='answerElem whiteText' (click)="sendMessageA()" >A</div>
+      <div class='answerElem whiteText' (click)="sendMessageB()">B</div>
+      <div class='answerElem whiteText' (click)="sendMessageC()">C</div>
+      <div class='answerElem whiteText' (click)="sendMessageD()">D</div>
+      <div class='answerElem whiteText' (click)="sendMessageE()">E</div>
     </div>
     <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" [disabled]="ifReady==1" style="border-color:#00ACA0 !important; color:white;">
     <button class="float-right" (click)="sendMessage()">Envoyer</button>

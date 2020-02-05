@@ -8,10 +8,10 @@
 
 .answerElem{
   display:inline-block;
-  background-color:yellow;
+  background-image:linear-gradient(#00ACA0ed,rgba(21, 70, 66, 0.929));
   border-style:solid;
-  border-color:yellow;
-  border-radius:70%;
+  border-color:linear-gradient(#00ACA0ed,rgba(21, 70, 66, 0.929));
+  border-radius:30%;
   text-align: center;
   width:20%;
 }
@@ -98,4 +98,7 @@ textarea {
 .float-right{
   background-color:#00ACA0 !important;
   border-color:#00ACA0 !important;
+}
+.whiteText{
+  color:white;
 }
