@@ -90,7 +90,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
     console.log(this.score)
   }
   sendMessageE() {
-    this.chat.converse('D');
+    this.chat.converse('E');
     this.numberE++;
     this.score=(this.numberA*1+this.numberB*2+this.numberC*3+this.numberD*4+this.numberE*5)/16;
     if((this.numberA+this.numberB+this.numberC+this.numberD+this.numberE)==16){
